@@ -38,13 +38,13 @@ const cartTotal = computed(() =>
 onMounted(async () => {
   
   products.value = [
-    {
-      id: 1,
-      img: makeupImage,
-      name: "Red lipstick",
-      price: 16,
-      quantity: 2
-    },
+    // {
+    //   id: 1,
+    //   img: makeupImage,
+    //   name: "Red lipstick",
+    //   price: 16,
+    //   quantity: 2
+    // },
     // {
     //   id: 2,
     //   img: makeupImage,
@@ -156,8 +156,14 @@ const incrementQuantity = ($event) => {
 };
 
 const addproduct =($event) => {
-  console.log($event);
-  products.value[(products.value.length)++] ={...$event} 
+  console.log($event.id);
+  const productIndex = products.value.findIndex(
+    (product) => product.id === 1
+  );
+  if($event.id == 1 && productIndex == 0){
+    products.value[0].quantity++;
+  }else{products.value[0] ={...$event} }
+  
 }
 
 

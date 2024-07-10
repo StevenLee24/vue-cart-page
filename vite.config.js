@@ -12,5 +12,8 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
+  publicPath: process.env.NODE_ENV === 'production'
+    ? '/vue-cart-page/' // replace 'your-repo-name' with the name of your GitHub repository
+    : '/'
   //  publicPath: '/vue-cart-page/'
 })
